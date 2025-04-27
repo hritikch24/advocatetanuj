@@ -1,0 +1,675 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Advocate Tanuj Kumar</title>
+    <style>
+        :root {
+            --primary-color: #9e1a1a;
+            --secondary-color: #333;
+            --light-color: #f5f5f5;
+            --accent-color: #e6e6e6;
+            --text-color: #333;
+        }
+        
+        .justice-symbol {
+            margin-top: 30px;
+            text-align: center;
+        }
+        
+        .justice-symbol svg {
+            filter: drop-shadow(0px 0px 5px rgba(0,0,0,0.3));
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Arial', sans-serif;
+        }
+        
+        body {
+            color: var(--text-color);
+            background-color: var(--light-color);
+            line-height: 1.6;
+            font-family: 'Arial', 'Helvetica', sans-serif;
+        }
+        
+        /* Improve responsiveness for Indian mobile users */
+        @media (max-width: 480px) {
+            .container {
+                padding: 0 15px;
+            }
+            
+            .about-image img {
+                max-width: 100%;
+                height: auto;
+            }
+            
+            .service-card {
+                padding: 20px;
+            }
+        }
+        
+        .container {
+            width: 100%;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+        
+        header {
+            background-color: var(--primary-color);
+            color: white;
+            padding: 20px 0;
+            position: relative;
+        }
+        
+        .header-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .logo {
+            display: flex;
+            align-items: center;
+        }
+        
+        .logo-image {
+            width: 60px;
+            height: 60px;
+            background-color: white;
+            border-radius: 50%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            color: var(--primary-color);
+            font-weight: bold;
+            font-size: 24px;
+            margin-right: 15px;
+        }
+        
+        .logo-text h1 {
+            font-size: 24px;
+            margin-bottom: 5px;
+        }
+        
+        .logo-text p {
+            font-size: 16px;
+        }
+        
+        nav ul {
+            display: flex;
+            list-style: none;
+        }
+        
+        nav ul li {
+            margin-left: 20px;
+        }
+        
+        nav ul li a {
+            color: white;
+            text-decoration: none;
+            font-weight: 500;
+            transition: color 0.3s;
+        }
+        
+        nav ul li a:hover {
+            color: var(--accent-color);
+        }
+        
+        .hero {
+            height: 500px;
+            background-image: linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.7)), url('law.jpg');
+            background-size: cover;
+            background-position: center;
+            display: flex;
+            align-items: center;
+            color: white;
+            text-align: center;
+        }
+        
+        .hero-content {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+        
+        .hero h2 {
+            font-size: 42px;
+            margin-bottom: 20px;
+        }
+        
+        .hero p {
+            font-size: 18px;
+            margin-bottom: 30px;
+        }
+        
+        .btn {
+            display: inline-block;
+            background-color: var(--primary-color);
+            color: white;
+            padding: 12px 30px;
+            text-decoration: none;
+            border-radius: 5px;
+            font-weight: bold;
+            transition: background-color 0.3s;
+        }
+        
+        .btn:hover {
+            background-color: #7e1515;
+        }
+        
+        section {
+            padding: 80px 0;
+        }
+        
+        .section-title {
+            text-align: center;
+            margin-bottom: 50px;
+        }
+        
+        .section-title h2 {
+            font-size: 32px;
+            color: var(--primary-color);
+            position: relative;
+            display: inline-block;
+            padding-bottom: 15px;
+        }
+        
+        .section-title h2::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 80px;
+            height: 3px;
+            background-color: var(--primary-color);
+        }
+        
+        .about-content {
+            display: flex;
+            align-items: center;
+            gap: 50px;
+        }
+        
+        .about-image {
+            flex: 1;
+        }
+        
+        .about-image img {
+            width: 100%;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+        }
+        
+        .about-text {
+            flex: 1;
+        }
+        
+        .about-text h3 {
+            font-size: 24px;
+            margin-bottom: 20px;
+            color: var(--secondary-color);
+        }
+        
+        .qualification-item {
+            margin-bottom: 10px;
+        }
+        
+        .services {
+            background-color: var(--accent-color);
+        }
+        
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+        }
+        
+        .service-card {
+            background-color: white;
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+            transition: transform 0.3s;
+        }
+        
+        .service-card:hover {
+            transform: translateY(-5px);
+        }
+        
+        .service-icon {
+            width: 60px;
+            height: 60px;
+            background-color: var(--primary-color);
+            color: white;
+            border-radius: 50%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-size: 24px;
+            margin-bottom: 20px;
+        }
+        
+        .service-card h3 {
+            font-size: 20px;
+            margin-bottom: 15px;
+            color: var(--secondary-color);
+        }
+        
+        .contact-info {
+            background-color: white;
+            padding: 40px;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+        }
+        
+        .contact-details {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 30px;
+            margin-bottom: 40px;
+        }
+        
+        .contact-item {
+            display: flex;
+            align-items: flex-start;
+        }
+        
+        .contact-icon {
+            width: 50px;
+            height: 50px;
+            background-color: var(--primary-color);
+            color: white;
+            border-radius: 50%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-size: 20px;
+            margin-right: 15px;
+        }
+        
+        .contact-text h4 {
+            font-size: 18px;
+            margin-bottom: 5px;
+            color: var(--secondary-color);
+        }
+        
+        .contact-form {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 20px;
+        }
+        
+        .form-group:nth-child(3) {
+            grid-column: 1 / 3;
+        }
+        
+        .form-group:nth-child(4) {
+            grid-column: 1 / 3;
+        }
+        
+        .form-group label {
+            display: block;
+            margin-bottom: 5px;
+            font-weight: 500;
+        }
+        
+        .form-group input, 
+        .form-group textarea {
+            width: 100%;
+            padding: 10px 15px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            font-size: 16px;
+        }
+        
+        .form-group textarea {
+            height: 150px;
+            resize: vertical;
+        }
+        
+        .form-submit {
+            grid-column: 1 / 3;
+            text-align: center;
+        }
+        
+        footer {
+            background-color: var(--secondary-color);
+            color: white;
+            padding: 40px 0 20px;
+            text-align: center;
+        }
+        
+        .footer-content {
+            display: flex;
+            justify-content: space-between;
+            flex-wrap: wrap;
+            gap: 30px;
+            margin-bottom: 30px;
+        }
+        
+        .footer-column {
+            flex: 1;
+            min-width: 250px;
+        }
+        
+        .footer-column h3 {
+            font-size: 20px;
+            margin-bottom: 20px;
+            position: relative;
+            padding-bottom: 10px;
+        }
+        
+        .footer-column h3::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 50px;
+            height: 2px;
+            background-color: var(--primary-color);
+        }
+        
+        .footer-links {
+            list-style: none;
+        }
+        
+        .footer-links li {
+            margin-bottom: 10px;
+        }
+        
+        .footer-links a {
+            color: #bbb;
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+        
+        .footer-links a:hover {
+            color: white;
+        }
+        
+        .copyright {
+            padding-top: 20px;
+            border-top: 1px solid #444;
+        }
+        
+        @media (max-width: 768px) {
+            .header-content {
+                flex-direction: column;
+                text-align: center;
+            }
+            
+            .logo {
+                margin-bottom: 20px;
+                justify-content: center;
+            }
+            
+            nav ul {
+                justify-content: center;
+            }
+            
+            nav ul li {
+                margin: 0 10px;
+            }
+            
+            .about-content {
+                flex-direction: column;
+            }
+            
+            .hero h2 {
+                font-size: 32px;
+            }
+        }
+        
+        @media (max-width: 480px) {
+            .hero h2 {
+                font-size: 28px;
+            }
+            
+            .section-title h2 {
+                font-size: 26px;
+            }
+            
+            .contact-form {
+                grid-template-columns: 1fr;
+            }
+            
+            .form-group:nth-child(3),
+            .form-group:nth-child(4),
+            .form-submit {
+                grid-column: 1;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="container header-content">
+            <div class="logo">
+                <div class="logo-image">TK</div>
+                <div class="logo-text">
+                    <h1>Tanuj Kumar</h1>
+                    <p>Advocate</p>
+                </div>
+            </div>
+            <nav>
+                <ul>
+                    <li><a href="#home">Home</a></li>
+                    <li><a href="#about">About</a></li>
+                    <li><a href="#services">Services</a></li>
+                    <li><a href="#contact">Contact</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+    
+    <section class="hero" id="home">
+        <div class="container hero-content">
+            <h2>Legal Excellence & Justice</h2>
+            <p>With 7 years of experience in Civil, Criminal and Finance law, I provide comprehensive legal services in Bulandshahr, Allahabad High Court, and PAN India. Available for legal consultation across all states of India.</p>
+            <a href="#contact" class="btn">Schedule a Consultation</a>
+            <div class="justice-symbol">
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 70" width="100" height="70">
+                    <g fill="#ffffff">
+                        <!-- Base -->
+                        <rect x="45" y="65" width="10" height="5" />
+                        <rect x="40" y="60" width="20" height="5" />
+                        
+                        <!-- Center pole -->
+                        <rect x="48" y="20" width="4" height="40" />
+                        
+                        <!-- Beam -->
+                        <rect x="20" y="20" width="60" height="3" />
+                        
+                        <!-- Left scale -->
+                        <path d="M20,20 L30,50 L40,50 L50,20 Z" opacity="0.7" />
+                        <circle cx="35" cy="48" r="5" />
+                        
+                        <!-- Right scale -->
+                        <path d="M50,20 L60,50 L70,50 L80,20 Z" opacity="0.7" />
+                        <circle cx="65" cy="48" r="5" />
+                    </g>
+                </svg>
+            </div>
+        </div>
+    </section>
+    
+    <section id="about" class="about">
+        <div class="container">
+            <div class="section-title">
+                <h2>About Me</h2>
+            </div>
+            <div class="about-content">
+                <div class="about-image">
+                    <!-- Using your local image file -->
+                    <img src="tanuj.jpeg" alt="Advocate Tanuj Kumar">
+                </div>
+                <div class="about-text">
+                    <h3>Experienced Legal Counsel</h3>
+                    <p>I am Tanuj Kumar, an advocate practicing at the Allahabad High Court and Bulandshahr District Court with 7 years of experience. I specialize in Civil, Criminal, and Finance law, providing comprehensive legal solutions to individuals and businesses across India.</p>
+                    
+                    <h3>Qualifications</h3>
+                    <div class="qualification-item">
+                        <strong>LL.M.</strong> - Banaras Hindu University
+                    </div>
+                    <div class="qualification-item">
+                        <strong>LL.B.</strong> - Banaras Hindu University
+                    </div>
+                    
+                    <h3>Experience</h3>
+                    <p>With 7 years of dedicated legal practice, I have successfully handled numerous cases at both the Allahabad High Court and Bulandshahr District Court. My commitment to delivering justice and providing sound legal advice has helped many clients navigate complex legal situations.</p>
+                    
+                    <h3>PAN India Services</h3>
+                    <p>While primarily based in Uttar Pradesh, I offer legal consultations and services across all Indian states. With expertise in multiple practice areas and a comprehensive understanding of the Indian judicial system, I can assist clients regardless of their location within India.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <section id="services" class="services">
+        <div class="container">
+            <div class="section-title">
+                <h2>My Services</h2>
+            </div>
+            <div class="services-grid">
+                <div class="service-card">
+                    <div class="service-icon">C</div>
+                    <h3>Civil Law</h3>
+                    <p>Handling property disputes, contract matters, family disputes, inheritance cases, rent control matters, and other civil litigation.</p>
+                </div>
+                
+                <div class="service-card">
+                    <div class="service-icon">C</div>
+                    <h3>Criminal Law</h3>
+                    <p>Representing clients in criminal trials, bail applications, anticipatory bail, criminal appeals, and providing counsel in police proceedings.</p>
+                </div>
+                
+                <div class="service-card">
+                    <div class="service-icon">F</div>
+                    <h3>Finance Law</h3>
+                    <p>Providing legal services in banking disputes, debt recovery, insolvency matters, financial fraud cases, and regulatory compliance.</p>
+                </div>
+                
+                <div class="service-card">
+                    <div class="service-icon">D</div>
+                    <h3>Documentation</h3>
+                    <p>Drafting and reviewing legal documents including contracts, agreements, wills, power of attorney, and legal notices.</p>
+                </div>
+                
+                <div class="service-card">
+                    <div class="service-icon">C</div>
+                    <h3>Consultation</h3>
+                    <p>Offering expert legal advice and consultation on various legal matters to help clients make informed decisions.</p>
+                </div>
+                
+                <div class="service-card">
+                    <div class="service-icon">P</div>
+                    <h3>PAN India Services</h3>
+                    <p>Offering legal consultation and advisory services across all states of India through virtual meetings and in-person representation when required.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <section id="contact" class="contact">
+        <div class="container">
+            <div class="section-title">
+                <h2>Contact Me</h2>
+            </div>
+            <div class="contact-info">
+                <div class="contact-details">
+                    <div class="contact-item">
+                        <div class="contact-icon">📞</div>
+                        <div class="contact-text">
+                            <h4>Phone</h4>
+                            <p>+91 8218764081</p>
+                        </div>
+                    </div>
+                    
+                    <div class="contact-item">
+                        <div class="contact-icon">✉️</div>
+                        <div class="contact-text">
+                            <h4>Email</h4>
+                            <p>tanujkumar360@gmail.com</p>
+                        </div>
+                    </div>
+                    
+                    <div class="contact-item">
+                        <div class="contact-icon">📍</div>
+                        <div class="contact-text">
+                            <h4>Chamber Address</h4>
+                            <p>Bulandshahr, Uttar Pradesh, India</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <form class="contact-form">
+                    <div class="form-group">
+                        <label for="name">Name</label>
+                        <input type="text" id="name" placeholder="Your Name">
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="phone">Phone</label>
+                        <input type="tel" id="phone" placeholder="Your Phone Number">
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="email">Email</label>
+                        <input type="email" id="email" placeholder="Your Email">
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="message">Message</label>
+                        <textarea id="message" placeholder="Describe your case briefly"></textarea>
+                    </div>
+                    
+                    <div class="form-submit">
+                        <button type="submit" class="btn">Send Message</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </section>
+    
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-column">
+                    <h3>Advocate Tanuj Kumar</h3>
+                    <p>Providing expert legal services in Civil, Criminal, and Finance law at the Allahabad High Court, Bulandshahr District Court, and across India through virtual consultations.</p>
+                </div>
+                
+                <div class="footer-column">
+                    <h3>Quick Links</h3>
+                    <ul class="footer-links">
+                        <li><a href="#home">Home</a></li>
+                        <li><a href="#about">About</a></li>
+                        <li><a href="#services">Services</a></li>
+                        <li><a href="#contact">Contact</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-column">
+                    <h3>Practice Areas</h3>
+                    <ul class="footer-links">
+                        <li><a href="#">Civil Litigation</a></li>
+                        <li><a href="#">Criminal Defense</a></li>
+                        <li><a href="#">Family Law</a></li>
+                        <li><a href="#">Property Law</a></li>
+                        <li><a href="#">Banking & Finance</a></li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="copyright">
+                <p>&copy; 2025 Advocate Tanuj Kumar. All Rights Reserved.</p>
+            </div>
+        </div>
+    </footer>
+</body>
+</html>
